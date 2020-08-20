@@ -11,10 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @Entity(name="Ecommerce_UserLoginInfo")
+@AllArgsConstructor
 public class UserLoginInfoModel {
 	@Id
 	String username;
