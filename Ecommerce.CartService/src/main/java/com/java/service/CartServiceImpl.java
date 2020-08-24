@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.java.dao.CartRepository;
 import com.java.entity.CartEntity;
 import com.java.entity.CartEntity.PaymentStatus;
+import com.java.repository.CartRepository;
 
 @Service
 public class CartServiceImpl implements CartService{

@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.java.dto.UserLoginInfo;
 
-
-@FeignClient("USER-MANAGEMENT-SERVICE")
+@FeignClient("user")
 public interface UserLoginInfoFeign {
 	@GetMapping("/userLogin/{username}")
 	public ResponseEntity<UserLoginInfo> getUserLoginInfoByUsername(@PathVariable String username);

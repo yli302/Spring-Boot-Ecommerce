@@ -13,10 +13,12 @@ import javax.persistence.JoinTable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity(name="Ecommerce_UserLoginInfo")
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserLoginInfoModel {
 	@Id
 	String username;

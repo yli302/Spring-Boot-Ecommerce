@@ -26,7 +26,8 @@ public class UserLoginController {
 	private UserLoginInfoService loginInfoService;
 
 	@PostMapping
-	public ResponseEntity<Object> addUser(@RequestBody UserLoginInfoModel user, HttpServletRequest req) throws URISyntaxException {
+	public ResponseEntity<Object> addUser(@RequestBody UserLoginInfoModel user, HttpServletRequest req)
+			throws URISyntaxException {
 		String id;
 		try {
 			id = loginInfoService.addUserLoginInfo(user);
@@ -42,7 +43,7 @@ public class UserLoginController {
 		loginInfoService.updateUserLoginInfo(user);
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@PutMapping("/changePassword")
 	public ResponseEntity<Object> updatePassword(@RequestBody ChangePasswordDto passwordDto) {
 		UserLoginInfoModel user = loginInfoService.getUserLoginInfoByUsername(passwordDto.getUsername());
@@ -52,9 +53,13 @@ public class UserLoginController {
 		loginInfoService.updateUserLoginInfo(user);
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@GetMapping("/{username}")
 	public ResponseEntity<UserLoginInfoModel> getUserLoginInfoByUsername(@PathVariable String username) {
-		return ResponseEntity.ok(loginInfoService.getUserLoginInfoByUsername(username));
+		UserLoginInfoModel user = loginInfoService.getUserLoginInfoByUsername(username);
+		if (user != null)
+			return ResponseEntity.ok(user);
+		else
+			return ResponseEntity.noContent().build();
 	}
 }
